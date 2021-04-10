@@ -18,7 +18,7 @@ package org.smartparam.engine.core.output;
 import org.smartparam.engine.core.exception.SmartParamException;
 
 /**
- * Trying to extract wrong type from {@link org.smartparam.engine.core.type.AbstractHolder}.
+ * Trying to extract wrong type from {@link org.smartparam.engine.core.type.AbstractValueHolder}.
  *
  * @author Adam Dubiel
  */

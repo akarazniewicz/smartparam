@@ -53,7 +53,7 @@ public @interface ParamFunctionRepository {
      * List of function repository function descriptors - each descriptor
      * creates new instance of function repository.
      *
-     * @see SmartParamObjectInstance
+     * @see ObjectInstance
      * @return instance descriptors
      */
     ObjectInstance[] instances() default {};

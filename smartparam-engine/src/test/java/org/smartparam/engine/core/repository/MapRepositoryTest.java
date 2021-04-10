@@ -89,6 +89,6 @@ public class MapRepositoryTest {
         catchException(mapRepository).registerUnique("TEST", new Object());
 
         /// then
-        assertThat(caughtException()).isInstanceOf(NonUniqueItemRegisteredException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(NonUniqueItemRegisteredException.class);
     }
 }

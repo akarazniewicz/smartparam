@@ -19,7 +19,7 @@ import org.smartparam.engine.core.type.AbstractValueHolder;
 
 /**
  * Klasa reprezentuje wartosci typu {@link BooleanType}.
- * Wewnetrza reprezentacja bazuje na polu <tt>value</tt> typu Boolean.
+ * Wewnetrza reprezentacja bazuje na polu value typu Boolean.
  * Wartosc moze byc rowna null.
  * <p>
  * Obiekty tej klasy sa niezmienne (immutable).
@@ -56,7 +56,7 @@ public class BooleanHolder extends AbstractValueHolder {
     }
 
     /**
-     * Zwraca wartosc jako typ prosty. Null zostanie zwrocony jako <tt>false</tt>.
+     * Zwraca wartosc jako typ prosty. Null zostanie zwrocony jako false.
      *
      * @return wartosc jako typ prosty
      */

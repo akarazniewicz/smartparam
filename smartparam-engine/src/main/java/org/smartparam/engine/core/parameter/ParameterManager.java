@@ -26,10 +26,10 @@ import org.smartparam.engine.core.prepared.PreparedParameter;
 public interface ParameterManager {
 
     /**
-     * Returns prepared parameter for <tt>paramName</tt> parameter. If there is
+     * Returns prepared parameter for paramName parameter. If there is
      * no such parameter it must return null.
      *
-     * @param paramName parameter name
+     * @param parameterName parameter name
      * @return complete representation of parameter (metadata + matrix) or null
      */
     PreparedParameter getPreparedParameter(String parameterName);

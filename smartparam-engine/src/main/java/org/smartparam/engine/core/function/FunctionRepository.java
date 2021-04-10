@@ -17,14 +17,13 @@ package org.smartparam.engine.core.function;
 
 /**
  * Repository of functions. ParamEngine instance can have multiple function
- * repositories defined, see {@link org.smartparam.engine.core.service.FunctionProvider}.
+ * repositories defined, see {@link FunctionProvider}.
  *
  * Each repository is registered under unique name. Function has type, which
- * is used to choose correct {@link org.smartparam.engine.core.invoker.FunctionInvoker},
+ * is used to choose correct {@link FunctionInvoker},
  * which will run function (invoker identifier has to match function type).
  *
  * @see Function
- * @see org.smartparam.engine.core.invoker.FunctionInvoker
  *
  * @author Adam Dubiel
  * @since 1.0.0

@@ -17,14 +17,14 @@ package org.smartparam.engine.config.initialization;
 
 /**
  * Contract for component, that can be initialized using {@link PostConstructInitializer}
- * when constructed by {@link ParamEngineFactory}.
+ * when constructed by ParamEngineFactory.
  *
  * @author Adam Dubiel
  */
 public interface InitializableComponent {
 
     /**
-     * Initialization method for {@link ParamEngineFactory} use.
+     * Initialization method for ParamEngineFactory use.
      */
     void initialize();
 

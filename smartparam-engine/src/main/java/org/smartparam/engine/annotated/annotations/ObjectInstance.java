@@ -37,9 +37,9 @@ import java.lang.annotation.Target;
  * using different constructor are:
  * <pre>
  *
- * @SmartParamObjectInstance(value = "no-arg", constructorArgs = {})
- * @SmartParamObjectInstance(value = "a", constructorArgs = {"someAValue"})
- * @SmartParamObjectInstance(value = "ab", constructorArgs = {"someAValue", "someBValue"})
+ * \@SmartParamObjectInstance(value = "no-arg", constructorArgs = {})
+ * \@SmartParamObjectInstance(value = "a", constructorArgs = {"someAValue"})
+ * \@SmartParamObjectInstance(value = "ab", constructorArgs = {"someAValue", "someBValue"})
  * </pre>
  *
  * @author Adam Dubiel

@@ -102,6 +102,6 @@ public class ClasspathResourceResolverIntegrationTest {
         catchException(resolver).batchLoadParameterFromResource("WRONG_RESOURCE_NAME");
 
         // then
-        assertThat(caughtException()).isInstanceOf(ResourceResolverException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(ResourceResolverException.class);
     }
 }

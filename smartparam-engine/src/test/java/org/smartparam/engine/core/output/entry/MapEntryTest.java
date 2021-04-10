@@ -50,7 +50,7 @@ public class MapEntryTest {
 
         // then
         assertThat(merged).isNotSameAs(host).isNotSameAs(other);
-        assertThat(merged.get("hostLevel")).isEqualTo("hostValue");
-        assertThat(merged.get("otherLevel")).isEqualTo("otherValue");
+        assertThat((String) merged.get("hostLevel")).isEqualTo("hostValue");
+        assertThat((String) merged.get("otherLevel")).isEqualTo("otherValue");
     }
 }

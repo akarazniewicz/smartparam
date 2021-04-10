@@ -16,6 +16,8 @@
 package org.smartparam.editor.config;
 
 import java.util.Arrays;
+import java.util.Set;
+
 import org.smartparam.engine.annotated.PackageList;
 import org.smartparam.engine.annotated.initialization.MethodScannerInitializer;
 import org.smartparam.engine.annotated.initialization.TypeScannerInitializer;
@@ -90,7 +92,7 @@ public final class ParamEditorConfigBuilder {
      * be used when you want to go deeper and replace one of ParamEngine core
      * interfaces. If so, register object instance that implements interface of
      * component you want to replace. For details on what are interfaces and
-     * classes, please take a look at source code of {@link org.smartparam.engine.config.ParamEngineConfig#injectDefaults(java.util.List) }.
+     * classes, please take a look at source code of {@link ParamEditorConfig#injectDefaults(Set)}  }.
      */
     public ParamEditorConfigBuilder withComponent(Class<?> interfaceClass, Object component) {
         config.addComponent(ComponentDefinition.component(interfaceClass, component));

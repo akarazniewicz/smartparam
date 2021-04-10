@@ -41,7 +41,7 @@ public class DescribedCollectionTest {
         catchException(collectionItems).add("2");
 
         // then
-        assertThat(caughtException()).isInstanceOf(UnsupportedOperationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class DescribedCollectionTest {
         catchException(collectionItems).add("2");
 
         // then
-        assertThat(caughtException()).isInstanceOf(UnsupportedOperationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class DescribedCollectionTest {
         catchException(collection).itemsList();
 
         // then
-        assertThat(caughtException()).isInstanceOf(IllegalStateException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(IllegalStateException.class);
     }
 
     @Test

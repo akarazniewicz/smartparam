@@ -25,22 +25,22 @@ package org.smartparam.engine.core.function;
  * decyduja m.in. nastepujace flagi:
  *
  * <ul>
- * <li><tt>versionSelector</tt> - ustawiona oznacza, ze funkcja moze byc uzywana
+ * <li>versionSelector - ustawiona oznacza, ze funkcja moze byc uzywana
  * do wybierania wersji na podstawie daty
- * <li><tt>levelCreator</tt> - ustawiona oznacza, ze funkcja moze byc uzywana do
+ * <li>levelCreator - ustawiona oznacza, ze funkcja moze byc uzywana do
  * dynamicznego pobierania wartosci poziomu
- * <li><tt>plugin</tt> - ustawiona oznacza, ze funkcja jest dowolnego
+ * <li>plugin - ustawiona oznacza, ze funkcja jest dowolnego
  * przeznaczenia i moze byc uzywana jako plugin
  * </ul>
  *
- * Funkcje typu <tt>versionSelector</tt> i <tt>levelCreator</tt> przyjmuja
- * zawsze jeden argument typu <tt>ParamContext</tt>. Funkcje typu
- * <tt>plugin</tt> moga przyjmowac dowolna liczbe argumentow dowolnego typu.
+ * Funkcje typu versionSelector i levelCreator przyjmuja
+ * zawsze jeden argument typu ParamContext. Funkcje typu
+ * plugin moga przyjmowac dowolna liczbe argumentow dowolnego typu.
  * <p>
  *
  * Sposob implementacji funkcji jest kwestia wtorna - funkcja moze byc
  * zrealizowana przy pomocy dowolnej implementacji. Dostepne implementacje sa
- * okreslone przez klasy rozszerzajace klase {@link FunctionImpl}.
+ * okreslone przez klasy rozszerzajace klase FunctionImpl.
  * <p>
  *
  * Dodatkowo, w celach informacyjnych, funkcja moze miec okreslony typ zgodny z
@@ -71,9 +71,7 @@ public class Function {
     }
 
     /**
-     * Function type, compatible with one of registered
-     * {@link org.smartparam.engine.core.config.TypeProvider}.
-     *
+     * Function type.
      * @return function type
      */
     public String getType() {

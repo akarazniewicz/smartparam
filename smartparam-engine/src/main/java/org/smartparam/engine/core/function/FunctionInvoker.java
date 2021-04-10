@@ -21,11 +21,11 @@ package org.smartparam.engine.core.function;
  * (null if function is void).
  *
  * Unique name under which invoker is registered in
- * {@link org.smartparam.engine.core.repository.InvokerRepository} should be the
+ * org.smartparam.engine.core.repository.InvokerRepository should be the
  * the same as type of functions invoked by this invoker. For example:
  * <pre>
- * function[type = java]  ---(invoked by)--> invoker[name = java]
- * function[type = groovy]  ---(invoked by)--> invoker[name = groovy]
+ * function[type = java]  ---(invoked by)-- invoker[name = java]
+ * function[type = groovy]  ---(invoked by)-- invoker[name = groovy]
  * </pre>
  * There can be only one function invoker registered per function type.
  *
@@ -36,7 +36,6 @@ public interface FunctionInvoker {
     /**
      * Invoke function, it is a good practice to wrap any outgoing exceptions
      * with {@link org.smartparam.engine.core.exception.SmartParamException}
-     * with {@link org.smartparam.engine.core.exception.SmartParamErrorCode#FUNCTION_INVOKE_ERROR}
      * reason.
      *
      * @param function description of function to invoke

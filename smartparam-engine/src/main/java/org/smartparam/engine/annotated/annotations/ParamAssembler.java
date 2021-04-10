@@ -50,7 +50,7 @@ public @interface ParamAssembler {
      * Returns data to instantiate assembler class with different constructor
      * arguments. Assembler objects will be registered under given names.
      *
-     * @see SmartParamObjectInstance
+     * @see ObjectInstance
      * @return assembler instance descriptors
      */
     ObjectInstance[] instances() default {};

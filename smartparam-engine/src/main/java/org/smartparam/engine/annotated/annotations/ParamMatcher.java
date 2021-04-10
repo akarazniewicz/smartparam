@@ -24,7 +24,7 @@ import java.lang.annotation.Target;
  * Marks matchers that should be added to matcher repository during initial
  * scan.
  *
- * @see org.smartparam.engine.core.index.Matcher
+ * @see org.smartparam.engine.core.matcher.Matcher
  * @author Adam Dubiel
  * @since 0.1.0
  */
@@ -51,7 +51,6 @@ public @interface ParamMatcher {
      * Returns data to instantiate matcher class with different constructor
      * arguments. Matcher objects will be registered under given names.
      *
-     * @see SmartParamObjectInstance
      * @return instance descriptors
      */
     ObjectInstance[] instances() default {};

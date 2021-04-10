@@ -26,7 +26,6 @@ public interface ParamEngineRuntimeConfigBuilder {
     /**
      * Creates runtime configuration descriptor for given param engine.
      *
-     * @param paramEngine engine
      * @return configuration
      */
     ParamEngineRuntimeConfig buildConfig();

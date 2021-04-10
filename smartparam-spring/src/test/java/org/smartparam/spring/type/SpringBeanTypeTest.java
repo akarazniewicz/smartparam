@@ -57,6 +57,6 @@ public class SpringBeanTypeTest extends AbstractTestNGSpringContextTests {
         catchException(type).decode("unknownBean");
 
         // then
-        assertThat(caughtException()).isInstanceOf(BeanNotFoundException.class);
+        assertThat((Exception)caughtException()).isInstanceOf(BeanNotFoundException.class);
     }
 }

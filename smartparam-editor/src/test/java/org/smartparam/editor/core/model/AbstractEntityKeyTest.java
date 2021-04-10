@@ -39,7 +39,7 @@ public class AbstractEntityKeyTest {
         catchException(entityKey).exposedParse("fake", null);
 
         // then
-        assertThat(caughtException()).isInstanceOf(IllegalArgumentException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class AbstractEntityKeyTest {
         catchException(entityKey).exposedParse("fake", "");
 
         // then
-        assertThat(caughtException()).isInstanceOf(IllegalArgumentException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -57,7 +57,7 @@ public class AbstractEntityKeyTest {
         catchException(entityKey).exposedParse("fake", "somethingWithoutSeparator");
 
         // then
-        assertThat(caughtException()).isInstanceOf(IllegalArgumentException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class AbstractEntityKeyTest {
         catchException(entityKey).exposedParse("fake", "something-withoutPrefix");
 
         // then
-        assertThat(caughtException()).isInstanceOf(IllegalArgumentException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test

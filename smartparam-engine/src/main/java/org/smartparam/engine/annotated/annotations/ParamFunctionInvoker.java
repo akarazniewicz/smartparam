@@ -51,7 +51,7 @@ public @interface ParamFunctionInvoker {
      * Returns data to instantiate function invoker class with different constructor
      * arguments. Function invoker objects will be registered under given names.
      *
-     * @see SmartParamObjectInstance
+     * @see ObjectInstance
      * @return instance descriptors
      */
     ObjectInstance[] instances() default {};

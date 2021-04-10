@@ -112,7 +112,7 @@ public class AbstractFSParamRepositoryTest {
         catchException(paramRepository).load("");
 
         // then
-        assertThat(caughtException()).isInstanceOf(InitializableComponentNotInitialized.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InitializableComponentNotInitialized.class);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class AbstractFSParamRepositoryTest {
         catchException(paramRepository).listParameters();
 
         // then
-        assertThat(caughtException()).isInstanceOf(InitializableComponentNotInitialized.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InitializableComponentNotInitialized.class);
     }
 
     @Test
@@ -136,7 +136,7 @@ public class AbstractFSParamRepositoryTest {
         catchException(paramRepository).batchLoad("");
 
         // then
-        assertThat(caughtException()).isInstanceOf(InitializableComponentNotInitialized.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InitializableComponentNotInitialized.class);
     }
 
     private final class TestFSParamRepository extends AbstractFSParamRepository {

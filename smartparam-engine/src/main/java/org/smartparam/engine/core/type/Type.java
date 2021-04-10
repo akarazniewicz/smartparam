@@ -27,13 +27,11 @@ package org.smartparam.engine.core.type;
  * Second one makes creating a type as easy as implementing decoding/encoding
  * routine, no ValueHolder needed.
  *
- * To use custom type in engine, register it at {@link org.smartparam.engine.core.repository.TypeRepository},
- * or use {@link org.smartparam.engine.annotations.ParamType} if annotation scan
+ * To use custom type in engine, register it at {@link TypeRepository},
+ * or use {@link org.smartparam.engine.annotated.annotations.ParamType} if annotation scan
  * is enabled.
  *
- * @param H supported value holder
- *
- * @author Przemek Hertel <przemek.hertel@gamil.com>
+ * @author Przemek Hertel
  * @since 1.0.0
  */
 public interface Type<H extends ValueHolder> {
@@ -52,7 +50,7 @@ public interface Type<H extends ValueHolder> {
 
     /**
      * Create value out of provided string. This is opposite to
-     * {@link Type#encode(org.smartparam.engine.core.type.AbstractHolder) }, so:
+     * {@link Type#encode(ValueHolder)}  }, so:
      * <pre>
      * encode( decode(str) ) == str
      * </pre>

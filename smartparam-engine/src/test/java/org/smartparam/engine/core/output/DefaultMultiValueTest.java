@@ -55,7 +55,7 @@ public class DefaultMultiValueTest {
         catchException(mv).get(0);
 
         // then
-        assertThat(caughtException()).isInstanceOf(InvalidValueIndexException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InvalidValueIndexException.class);
     }
 
     @Test
@@ -139,7 +139,7 @@ public class DefaultMultiValueTest {
         catchException(mv).getEnum(0, LetterType.class);
 
         // when then
-        assertThat(caughtException()).isInstanceOf(GettingWrongTypeException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(GettingWrongTypeException.class);
     }
 
     @Test
@@ -162,7 +162,7 @@ public class DefaultMultiValueTest {
         catchException(mv).getArray(0);
 
         // then
-        assertThat(caughtException()).isInstanceOf(GettingWrongTypeException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(GettingWrongTypeException.class);
     }
 
     @Test
