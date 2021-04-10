@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * find by reflection and invoked multiple times. Whole search magic is hidden
  * in {@link #findSetter(java.lang.Class, java.lang.Object) } method.
  *
- * @author Adam Dubiel <dubiel.adam@gmail.com>
+ * @author Adam Dubiel dubiel.adam@gmail.com
  */
 public class ReflectionSetterInvoker {
 

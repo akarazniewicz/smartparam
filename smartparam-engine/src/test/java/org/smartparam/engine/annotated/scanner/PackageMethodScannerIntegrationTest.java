@@ -65,7 +65,7 @@ public class PackageMethodScannerIntegrationTest {
         catchException(scanner).scanMethods(DummyPluginAnnotation.class);
 
         // then
-        assertThat(caughtException()).isInstanceOf(NonUniqueFunctionRegisteredException.class);
+        assertThat((Exception)caughtException()).isInstanceOf(NonUniqueFunctionRegisteredException.class);
     }
 
     @Test
@@ -77,6 +77,6 @@ public class PackageMethodScannerIntegrationTest {
         catchException(scanner).scanMethods(DummyPluginAnnotationWithoutValue.class);
 
         // then
-        assertThat(caughtException()).isNotNull().isInstanceOf(InnerReflectiveOperationException.class);
+        assertThat((Exception) caughtException()).isNotNull().isInstanceOf(InnerReflectiveOperationException.class);
     }
 }

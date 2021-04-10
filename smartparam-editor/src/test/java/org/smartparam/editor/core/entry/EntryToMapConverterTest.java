@@ -62,7 +62,7 @@ public class EntryToMapConverterTest {
         MapEntry map = converter.asMap(metadata, entry);
 
         // then
-        assertThat(map.get("star")).isInstanceOf(Star.class);
+        assertThat((Star) map.get("star")).isInstanceOf(Star.class);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class EntryToMapConverterTest {
         MapEntry map = converter.asMap(metadata, entry);
 
         // then
-        assertThat(map.get("rawValue")).isEqualTo("something");
+        assertThat((String) map.get("rawValue")).isEqualTo("something");
     }
 
     @Test
@@ -88,7 +88,7 @@ public class EntryToMapConverterTest {
         MapEntry map = converter.asMap(metadata, entry);
 
         // then
-        assertThat(map.get("nullValue")).isNull();
+        assertThat((String) map.get("nullValue")).isNull();
     }
 
     @Test

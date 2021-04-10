@@ -27,9 +27,9 @@ import org.smartparam.engine.core.repository.RepositoryName;
  * Compiled parameter object, which contains all resolved references and
  * only necessary fields. It also contains prepared LevelIndex for quick search.
  *
- * @see org.smartparam.engine.model.Parameter
- * @see org.smartparam.engine.model.ParameterEntry
- * @see org.smartparam.engine.model.Level
+ * @see Parameter
+ * @see org.smartparam.engine.core.parameter.entry.ParameterEntry
+ * @see org.smartparam.engine.core.parameter.level.Level
  * @see LevelIndex
  *
  * @author Przemek Hertel

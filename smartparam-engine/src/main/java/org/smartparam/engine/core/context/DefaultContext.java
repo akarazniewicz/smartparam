@@ -58,12 +58,12 @@ public class DefaultContext extends BaseParamContext {
     /**
      * Puts provided values into context using algorithm:
      * <ol>
-     * <li>if <tt>args[i]</tt> is <tt>String[]</tt> level values are set using {@link #setLevelValues(java.lang.String[]) } </li>
-     * <li>if <tt>args[i]</tt> is <tt>Object[]</tt> level values are set using {@link #setLevelValues(java.lang.Object[]) } </li>
-     * <li>if <tt>args[i]</tt> is <tt>String</tt> <tt>args[i+1]</tt> value is taken and put into context under <tt>args[i]</tt> key using {@link #set(java.lang.String, java.lang.Object) }</li>
-     * <li>if <tt>args[i]</tt> is <tt>Locale</tt>, it is set as a locale used for lowercase operations in {@link #set(java.lang.String, java.lang.Object, boolean) }</li>
-     * <li>else, setter lookup is performed using {@link ReflectionSetterFinder} to find any setter of current context object that accepts <tt>args[i]</tt></li>
-     * <li>eventually, <tt>args[i]</tt> is put into context under its class name using {@link #set(java.lang.Object) }</li>
+     * <li>if args[i] is String[] level values are set using {@link #setLevelValues(Object...)}  } </li>
+     * <li>if args[i] is Object[] level values are set using {@link #setLevelValues(java.lang.Object[]) } </li>
+     * <li>if args[i] is String args[i+1] value is taken and put into context under args[i] key using {@link #setLevelValues(Object...)}  }</li>
+     * <li>if args[i] is Locale, it is set as a locale used for lowercase operations in {@link #set(Object)}  }</li>
+     * <li>else, setter lookup is performed using {@link ReflectionSetterInvoker} to find any setter of current context object that accepts args[i]</li>
+     * <li>eventually, args[i] is put into context under its class name using {@link #set(java.lang.Object) }</li>
      * </ol>.
      *
      * This mechanism should be used with caution, as sometimes it can produce
@@ -92,10 +92,6 @@ public class DefaultContext extends BaseParamContext {
     /**
      * Create empty context, use setter methods to initialize it.
      *
-     * @see #setLevelValues(java.lang.String[])
-     * @see #setLevelValues(java.lang.Object[])
-     * @see #set(java.lang.String, java.lang.Object)
-     * @see #set(java.lang.Object)
      * @see #DefaultContext(java.lang.Object[])
      */
     public DefaultContext() {
@@ -134,21 +130,20 @@ public class DefaultContext extends BaseParamContext {
     }
 
     /**
-     * Put <tt>value</tt> under <tt>lowercase(key)</tt>. Will throw a
+     * Put value under lowercase(key). Will throw a
      * {@link DuplicateContextItemException} if there was value registered already.
      *
      * @param key
      * @param value
      * @return
      *
-     * @see #set(java.lang.String, java.lang.Object, boolean)
      */
     public final DefaultContext with(String key, Object value) {
         return with(key, value, false);
     }
 
     /**
-     * Put <tt>value</tt> under key <tt>lowercase(key)</tt>. allowOverwrite flag
+     * Put value under key lowercase(key). allowOverwrite flag
      * determines what happens in case of key collision. If overwriting is allowed,
      * new value replaces old one, otherwise {@link DuplicateContextItemException} is
      * thrown. Lowercase function uses default JVM locale, if none other specified.
@@ -179,8 +174,8 @@ public class DefaultContext extends BaseParamContext {
     }
 
     /**
-     * Put value under <tt>lowercase(value.class.getSimpleName())</tt> in user
-     * context map. Internally calls {@link #set(java.lang.String, java.lang.Object) }.
+     * Put value under lowercase(value.class.getSimpleName()) in user
+     * context map.
      *
      * @param value
      * @return
@@ -225,10 +220,10 @@ public class DefaultContext extends BaseParamContext {
     }
 
     /**
-     * Looks for object of class <tt>clazz</tt> (or object which class is
-     * assignable from <tt>clazz</tt>. Algorithm:
+     * Looks for object of class clazz (or object which class is
+     * assignable from clazz. Algorithm:
      * <ol>
-     * <li>look for object stored under <tt>clazz.getSimpleName()</tt>, return if not null and class match</li>
+     * <li>look for object stored under clazz.getSimpleName(), return if not null and class match</li>
      * <li>iterate through all context values to look for first object that matches provided clazz</li>
      * </ol>
      *
@@ -276,7 +271,6 @@ public class DefaultContext extends BaseParamContext {
 
     /**
      * Explicitly set locale used for lowercase operation on map keys used by
-     * {@link #set(java.lang.String, java.lang.Object, boolean) } and
      * {@link #get(java.lang.String) }.
      *
      * @param locale

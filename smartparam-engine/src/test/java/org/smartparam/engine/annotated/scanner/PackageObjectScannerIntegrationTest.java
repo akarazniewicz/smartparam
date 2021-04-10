@@ -106,7 +106,7 @@ public class PackageObjectScannerIntegrationTest {
         catchException(scanner).getAnnotatedObjects(DummyAnnotationWithoutInstances.class, packageList);
 
         // then
-        assertThat(caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
     }
 
     @Test
@@ -118,7 +118,7 @@ public class PackageObjectScannerIntegrationTest {
         catchException(scanner).getAnnotatedObjects(DummyAnnotationWithoutValue.class, packageList);
 
         // then
-        assertThat(caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
     }
 
     @Test
@@ -130,7 +130,7 @@ public class PackageObjectScannerIntegrationTest {
         catchException(scanner).getAnnotatedObjects(DummyAnnotationWithoutValues.class, packageList);
 
         // then
-        assertThat(caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
     }
 
     @Test
@@ -142,6 +142,6 @@ public class PackageObjectScannerIntegrationTest {
         catchException(scanner).getAnnotatedObjects(DummyAnnotationWithoutOrder.class, packageList);
 
         // then
-        assertThat(caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(InnerReflectiveOperationException.class);
     }
 }

@@ -20,7 +20,7 @@ import org.smartparam.engine.core.type.AbstractValueHolder;
 
 /**
  * Klasa reprezentuje wartosci typu {@link NumberType}.
- * Wewnetrza reprezentacja bazuje na polu <tt>value</tt> typu BigDecimal.
+ * Wewnetrza reprezentacja bazuje na polu value typu BigDecimal.
  * Dzieki temu przechowuje w sposob <b>bezstratny</b> kazda liczbe,
  * ktora mozna zapisac jako String.
  * <p>

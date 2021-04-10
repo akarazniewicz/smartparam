@@ -51,7 +51,7 @@ public @interface ParamType {
      * Returns data to instantiate type class with different constructor
      * arguments. Type objects will be registered under given names.
      *
-     * @see SmartParamObjectInstance
+     * @see ObjectInstance
      * @return instance descriptors
      */
     ObjectInstance[] instances() default {};

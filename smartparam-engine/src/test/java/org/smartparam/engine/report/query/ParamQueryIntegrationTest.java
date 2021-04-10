@@ -159,7 +159,7 @@ public class ParamQueryIntegrationTest {
 
         // then
         assertThat(paramValue).hasSize(1);
-        assertThat(paramValue.get()).isEqualTo(50L);
+        assertThat((long) paramValue.get()).isEqualTo(50L);
     }
 
     private static class HigherValueChooser extends DecodedValueChooser {

@@ -18,7 +18,7 @@ package org.smartparam.engine.core.prepared;
 import org.smartparam.engine.core.exception.SmartParamException;
 
 /**
- * Trying to use unknown level {@link org.smartparam.engine.core.index.Matcher}.
+ * Trying to use unknown level {@link org.smartparam.engine.core.matcher.Matcher}.
  *
  * @author Adam Dubiel
  */

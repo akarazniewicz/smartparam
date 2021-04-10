@@ -21,8 +21,6 @@ import org.smartparam.engine.util.reflection.InnerReflectiveOperationException;
 /**
  * When initializing dynamic context.
  *
- * @see org.smartparam.engine.core.context.DefaultContext#initialize(java.lang.Object[]).
- *
  * @author Adam Dubiel
  */
 @SuppressWarnings("serial")

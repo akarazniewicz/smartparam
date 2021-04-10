@@ -31,7 +31,7 @@ public interface Matcher {
     /**
      * Check if value matches the pattern. Type can be used to parse value or
      * to differentiate matchers behavior depending on value type. Type is
-     * defined per parameter {@link org.smartparam.engine.model.Level}.
+     * defined per parameter {@link org.smartparam.engine.core.parameter.level.Level}.
      *
      * @param <T> level type
      * @param value value form query (provided by user)

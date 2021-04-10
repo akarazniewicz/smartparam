@@ -54,7 +54,7 @@ public interface ParamEngine {
      * Return submatrix of parameter rows that match provided query values.
      * Input levels array should have length equal to parameters input levels count.
      *
-     * @param parameterName name of parameter to search
+     * @param paramName name of parameter to search
      * @param inputLevels   values to match against each input level
      * @return resulting submatrix
      */

@@ -33,8 +33,6 @@ import org.smartparam.engine.util.EngineUtil;
  * <pre>
  * ~ : - ,
  * </pre>
- * First separator that was found in pattern string is used to split it.
- * Use {@link #setSeparators(java.lang.String) } to override defaults.
  *
  * @author Przemek Hertel
  * @since 0.9.0

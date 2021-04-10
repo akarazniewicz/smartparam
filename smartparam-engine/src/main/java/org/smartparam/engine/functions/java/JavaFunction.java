@@ -25,8 +25,8 @@ import org.smartparam.engine.core.function.Function;
  *
  * Definicja tej funkcji sklada sie z:
  * <ol>
- * <li><tt>className</tt> - pelnopakietowa nazwa klasy
- * <li><tt>methodName</tt> - nazwa metody o dostepie <b>publicznym</b>, metoda
+ * <li>className - pelnopakietowa nazwa klasy
+ * <li>methodName - nazwa metody o dostepie <b>publicznym</b>, metoda
  * moze byc zarowno instancyjna jak i statyczna
  * </ol>
  *

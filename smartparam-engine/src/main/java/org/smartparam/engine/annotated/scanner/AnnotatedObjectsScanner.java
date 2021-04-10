@@ -36,15 +36,6 @@ import org.smartparam.engine.annotated.PackageList;
  * <li>values() - if same object should be returned multiple times under different names</li>
  * <li>instances() - if object should be instantiated with specific constructor args</li>
  * </ul>
- * Also, if scanned annotation is {@link SmartParamSortable}, it should define
- * order() method.
- *
- * @see org.smartparam.engine.annotations.SmartParamMatcher
- * @see SmartParamObjectInstance
- *
- * Map returned by {@link #getAnnotatedObjects(java.lang.Class) } is not ordered,
- * but the key ({@link RepositoryObjectKey}) holds all information that can be
- * used for ordering.
  *
  *
  * @param <T> type of object to instantiate
@@ -61,7 +52,7 @@ public class AnnotatedObjectsScanner<T> {
      * Scan for classes annotated with given annotation type, instantiate them
      * using hints from annotation and return a map of those objects.
      *
-     * Might throw {@link org.smartparam.engine.core.exception.SmartParamInitializationException} if any reflective
+     * Might throw {@link org.smartparam.engine.core.exception.SmartParamException} if any reflective
      * operation fails.
      *
      * @see RepositoryObjectKey

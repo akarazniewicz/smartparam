@@ -26,9 +26,9 @@ import org.smartparam.engine.util.EngineUtil;
  * Typ ten przechowuje wartosci logiczne w obiekcie {@link BooleanHolder},
  * ktory moze reprezentowac:
  * <ul>
- * <li>wartosc logiczna <tt>false</tt>
- * <li>wartosc logiczna <tt>true</tt>
- * <li>wartosc <tt>null</tt>
+ * <li>wartosc logiczna false
+ * <li>wartosc logiczna true
+ * <li>wartosc null
  * </ul>
  *
  * @author Przemek Hertel
