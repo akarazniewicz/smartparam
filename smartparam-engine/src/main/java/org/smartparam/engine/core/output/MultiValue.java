@@ -17,6 +17,8 @@ package org.smartparam.engine.core.output;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import org.smartparam.engine.core.parameter.Parameter;
 import org.smartparam.engine.core.parameter.entry.ParameterEntryKey;
 import org.smartparam.engine.core.type.ValueHolder;
 
@@ -69,9 +71,9 @@ public interface MultiValue {
 
     /**
      * Return array of values stored at position. Should be used if parameter
-     * level contained list of values ({@link org.smartparam.engine.model.Level#isArray()}.
+     * level contained list of values ({@link org.smartparam.engine.core.parameter.level.Level#isArray()}.
      * This string list is split into array of values using separator defined at
-     * parameter level ({@link org.smartparam.engine.model.Parameter#getArraySeparator()}).
+     * parameter level ({@link Parameter#getArraySeparator()}).
      * Type of each value holder in array is the same, defined by level type.
      */
     ValueHolder[] getArray(int position);
@@ -323,9 +325,6 @@ public interface MultiValue {
     /**
      * Return array of unwrapped objects, this is a raw representation of
      * contents of AbstractHolders from MultiValue object.
-     * Each array element is either value of {@link AbstractHolder#getValue() }
-     * if level stores single value or array of {@link AbstractHolder#getValue() }
-     * if level stores an array.
      */
     Object[] unwrap();
 

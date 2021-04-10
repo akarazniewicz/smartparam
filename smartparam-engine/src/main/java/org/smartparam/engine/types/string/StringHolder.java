@@ -19,7 +19,7 @@ import org.smartparam.engine.core.type.AbstractValueHolder;
 
 /**
  * Klasa reprezentuje wartosci typu {@link StringType}.
- * Wewnetrza reprezentacja bazuje na polu <tt>value</tt> typu String.
+ * Wewnetrza reprezentacja bazuje na polu value typu String.
  * Wartosc moze byc rowna null.
  * <p>
  * Obiekty tej klasy sa niezmienne (immutable).

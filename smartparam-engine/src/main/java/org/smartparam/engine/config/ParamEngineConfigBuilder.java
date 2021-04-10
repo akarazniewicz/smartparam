@@ -18,6 +18,7 @@ package org.smartparam.engine.config;
 import org.smartparam.engine.config.initialization.ComponentInitializer;
 import org.smartparam.engine.config.initialization.ComponentInitializerRunner;
 import java.util.Arrays;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import org.smartparam.engine.annotated.PackageList;
 import org.smartparam.engine.annotated.RepositoryObjectKey;
@@ -121,7 +122,7 @@ public final class ParamEngineConfigBuilder {
      * be used when you want to go deeper and replace one of ParamEngine core
      * interfaces. If so, register object instance that implements interface of
      * component you want to replace. For details on what are interfaces and
-     * classes, please take a look at source code of {@link ParamEngineConfig#injectDefaults(java.util.List) }.
+     * classes, please take a look at source code of {@link ParamEngineConfig#injectDefaults(Set)}  }.
      */
     public ParamEngineConfigBuilder withComponent(Class<?> interfaceClass, Object component) {
         paramEngineConfig.addComponent(ComponentDefinition.component(interfaceClass, component));

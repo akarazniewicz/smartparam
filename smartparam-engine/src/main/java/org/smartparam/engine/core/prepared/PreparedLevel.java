@@ -25,7 +25,7 @@ import org.smartparam.engine.core.function.Function;
  * makes the object smaller and easier to use (no need to resolve those fields
  * each time parameter is called.
  *
- * @see org.smartparam.engine.model.Level
+ * @see org.smartparam.engine.core.parameter.level.Level
  *
  * @author Przemek Hertel
  * @since 1.0.0

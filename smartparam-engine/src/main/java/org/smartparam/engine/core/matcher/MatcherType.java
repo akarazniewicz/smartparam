@@ -30,7 +30,7 @@ import org.smartparam.engine.core.type.Type;
  * decode(encode(obj)) == obj
  * </pre>
  *
- * @see org.smartparam.engine.matchers.decoder.BetweenMatcherDecoder
+ * @see org.smartparam.engine.matchers.BetweenMatcher
  *
  * @author Adam Dubiel
  */

@@ -26,7 +26,7 @@ import org.smartparam.engine.util.EngineUtil;
  * Przechowuje wartosci liczbowe w obiekcie {@link NumberHolder}, ktory moze reprezentowac:
  * <ul>
  * <li>dowolna liczbe rzeczywista, ktora ma reprezentacje dziesietna (BigDecimal)
- * <li>wartosc <tt>null</tt>
+ * <li>wartosc null
  * </ul>
  *
  * @author Przemek Hertel
@@ -38,9 +38,9 @@ public class NumberType implements Type<NumberHolder> {
     public static final String TYPE_NAME = "number";
 
     /**
-     * Zamienia obiekt holdera na <tt>String</tt>.
+     * Zamienia obiekt holdera na String.
      *
-     * @param holder obiekt holdera
+     * @param value obiekt holdera
      *
      * @return stringowa reprezentacja holdera lub null, jesli wartosc holdera jest null
      */
@@ -53,8 +53,8 @@ public class NumberType implements Type<NumberHolder> {
      * Zamienia string na obiekt holdera.
      * Moze rzucic wyjatek, jesli string nie reprezentuje liczby,
      * ktora da sie przechowac w obiekcie {@link NumberHolder}.
-     * String rowny <tt>null</tt> lub majacy wylacznie biale znaki zamieniany
-     * jest na <tt>NumberHolder(null)</tt>.
+     * String rowny null lub majacy wylacznie biale znaki zamieniany
+     * jest na NumberHolder(null).
      *
      * @param text string reprezentujacy liczbe
      *

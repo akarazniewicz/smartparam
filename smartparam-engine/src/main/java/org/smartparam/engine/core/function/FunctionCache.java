@@ -31,7 +31,7 @@ import org.smartparam.engine.core.function.Function;
 public interface FunctionCache {
 
     /**
-     * Wstawia funkcje <tt>function</tt> pod kluczem <tt>functionName</tt>.
+     * Wstawia funkcje function pod kluczem functionName.
      *
      * @param functionName unikalna nazwa funkcji
      * @param function     funkcja z repozytorium
@@ -41,7 +41,7 @@ public interface FunctionCache {
     void putAll(Map<String, Function> functions);
 
     /**
-     * Zwraca funkcje o nazwie <tt>functionName</tt> lub <tt>null</tt>,
+     * Zwraca funkcje o nazwie functionName lub null,
      * jesli nie ma w cache'u takiej funkcji.
      *
      * @param functionName nazwa funkcji
@@ -51,7 +51,7 @@ public interface FunctionCache {
     Function get(String functionName);
 
     /**
-     * Usuwa z cache'a funkcje o nazwie <tt>functionName</tt>.
+     * Usuwa z cache'a funkcje o nazwie functionName.
      *
      * @param functionName nazwa funkcji
      */

@@ -97,7 +97,7 @@ public class BasicLevelPreparerTest {
         catchException(basicLevelPreparer).prepare(level);
 
         // then
-        assertThat(caughtException()).isInstanceOf(UnknownMatcherException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(UnknownMatcherException.class);
     }
 
     @Test
@@ -110,6 +110,6 @@ public class BasicLevelPreparerTest {
         catchException(basicLevelPreparer).prepare(level);
 
         // then
-        assertThat(caughtException()).isInstanceOf(UnknownTypeException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(UnknownTypeException.class);
     }
 }

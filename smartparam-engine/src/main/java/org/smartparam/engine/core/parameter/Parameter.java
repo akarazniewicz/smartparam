@@ -25,7 +25,7 @@ import java.util.Set;
  * Two logical parts are metadata (attributes) and matrix (entries).
  *
  * Parameter MIGHT contain unique key, but this depends on repository implementation, might
- * be useful for auditing purposes, but this should be generally avoided (see {@link #identifyEntries()} for reasons).
+ * be useful for auditing purposes, but this should be generally avoided.
  *
  * @see ParameterEntry
  * @see Level

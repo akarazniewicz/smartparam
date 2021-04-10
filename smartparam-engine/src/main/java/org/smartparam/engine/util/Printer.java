@@ -35,10 +35,10 @@ public final class Printer {
     private static final int LINE_NUMBER_WIDTH = 3;
 
     /**
-     * Tworzy string reprezentujacy zawartosc kolekcji <tt>list</tt> w czytelnej postaci.
+     * Tworzy string reprezentujacy zawartosc kolekcji list w czytelnej postaci.
      * Kazdy element kolekcji wypisywany jest w kolejnej linii.
      * Uzytkownik moze okreslic maksymalna liczbe linii, ktore zostana wydrukowane.
-     * Dodatkowo mozna podac <tt>formatter</tt>, ktory zostanie uzyty do sformatowania
+     * Dodatkowo mozna podac formatter, ktory zostanie uzyty do sformatowania
      * kazdego elementu w kolekcji.
      *
      * @param list      kolekcja obiektow
@@ -111,14 +111,14 @@ public final class Printer {
      * Formatowanie odbywa sie wg schematu:
      * <ol>
      * <li>jesli formatter jest podany, uzywa tego formattera,
-     * <li>jesli obiekt <tt>e</tt> jest tablica, zostanie zwrocona zawartosc tablicy (Arrays.toString),
+     * <li>jesli obiekt e jest tablica, zostanie zwrocona zawartosc tablicy (Arrays.toString),
      * <li>w przeciwnym razie zostanie uzyte: String.valueOf(e).
      * </ol>
      *
      * @param e         obiekt, ktory ma zostac sformatowany
      * @param formatter opcjonalny formatter uzywany do formatowania
      *
-     * @return stringowa reprezentacja obiektu <tt>e</tt>
+     * @return stringowa reprezentacja obiektu e
      */
     static String format(Object e, Formatter formatter) {
         if (formatter != null) {
@@ -131,7 +131,7 @@ public final class Printer {
     }
 
     /**
-     * Wyrownuje liczba <tt>n</tt> do prawej strony,
+     * Wyrownuje liczba n do prawej strony,
      * tak by zajmowala {@link #LINE_NUMBER_WIDTH} znakow.
      */
     private static String padNumber(int n) {

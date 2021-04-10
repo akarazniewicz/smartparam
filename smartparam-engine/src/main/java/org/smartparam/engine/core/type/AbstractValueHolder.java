@@ -86,7 +86,7 @@ public abstract class AbstractValueHolder implements ValueHolder {
     /**
      * Compares two holders using algorithm:
      * <ul>
-     * <li>is value held comparable? (checked using {@link AbstractHolder#isComparable() } method</li>
+     * <li>is value held comparable? (checked using {@link AbstractValueHolder#isComparable()}  } method</li>
      * <li>if not return 0 (objects are equal, cos we don't know how to compare them)</li>
      * <li>if comparable, do a null-safe comparison using {@link Comparable#compareTo(java.lang.Object)} method</li>
      * </ul>

@@ -27,7 +27,7 @@ import org.smartparam.engine.util.EngineUtil;
  * ktory moze reprezentowac:
  * <ul>
  * <li>liczby calkowite z przedzialu od -9223372036854775808 do 9223372036854775807 (64 bit, signed)
- * <li>wartosc <tt>null</tt>
+ * <li>wartosc null
  * </ul>
  *
  * @author Przemek Hertel
@@ -39,9 +39,9 @@ public class IntegerType implements Type<IntegerHolder> {
     public static final String TYPE_NAME = "integer";
 
     /**
-     * Zamienia obiekt holdera na <tt>String</tt>.
+     * Zamienia obiekt holdera na String.
      *
-     * @param holder obiekt holdera
+     * @param value obiekt holdera
      * @return stringowa reprezentacja holdera lub null, jesli wartosc holdera jest null
      */
     @Override
@@ -54,8 +54,8 @@ public class IntegerType implements Type<IntegerHolder> {
      * Zamienia string na obiekt holdera.
      * Moze rzucic wyjatek, jesli string nie reprezentuje liczby,
      * ktora da sie przechowac w obiekcie {@link IntegerHolder}.
-     * String rowny <tt>null</tt> lub majacy wylacznie biale znaki zamieniany
-     * jest na <tt>IntegerHolder(null)</tt>.
+     * String rowny null lub majacy wylacznie biale znaki zamieniany
+     * jest na IntegerHolder(null).
      *
      * @param text string reprezentujacy liczbe calkowita
      * @return obiekt holdera
@@ -85,7 +85,7 @@ public class IntegerType implements Type<IntegerHolder> {
      * <li>null
      * <li>String, jesli mozna go sparsowac na Long
      * </ul>
-     * Argument rowny <tt>null</tt> zostanie skonwertowany na IntegerHolder reprezentujacy null.
+     * Argument rowny null zostanie skonwertowany na IntegerHolder reprezentujacy null.
      * <p>
      * Na przyklad:
      * <pre>

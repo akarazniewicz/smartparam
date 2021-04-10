@@ -26,7 +26,6 @@ import org.smartparam.engine.core.type.ValueHolder;
  *
  * In case of providing values that are out of bounds,
  * {@link org.smartparam.engine.core.exception.SmartParamException} with
- * {@link org.smartparam.engine.core.exception.SmartParamErrorCode#INDEX_OUT_OF_BOUNDS}
  * reason is thrown.
  *
  * @author Przemek Hertel

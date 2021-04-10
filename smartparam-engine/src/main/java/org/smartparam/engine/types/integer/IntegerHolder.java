@@ -20,7 +20,7 @@ import org.smartparam.engine.core.type.AbstractValueHolder;
 
 /**
  * Klasa reprezentuje wartosci typu {@link IntegerType}.
- * Wewnetrza reprezentacja bazuje na polu <tt>value</tt> typu Long.
+ * Wewnetrza reprezentacja bazuje na polu value typu Long.
  * Wartosc moze byc rowna null.
  * <p>
  * Obiekty tej klasy sa niezmienne (immutable).

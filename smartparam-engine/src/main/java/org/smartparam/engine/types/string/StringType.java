@@ -33,7 +33,7 @@ public class StringType implements Type<StringHolder> {
     public static final String TYPE_NAME = "string";
 
     /**
-     * Zamienia obiekt holdera na <tt>String</tt>.
+     * Zamienia obiekt holdera na String.
      *
      * @param holder obiekt holdera
      * @return wartosc holdera podana wprost
@@ -56,8 +56,8 @@ public class StringType implements Type<StringHolder> {
 
     /**
      * Konwertuje dowolny obiekt (np. zwrocony przez funkcje) na obiekt holdera.
-     * Wartosc stringowa holdera bedzie rowna wynikowi metody <tt>toString</tt> obiektu.
-     * Argument rowny <tt>null</tt> zostanie zamieniony na StringHolder reprezentujacy null.
+     * Wartosc stringowa holdera bedzie rowna wynikowi metody toString obiektu.
+     * Argument rowny null zostanie zamieniony na StringHolder reprezentujacy null.
      * <p>
      * Na przyklad:
      * <pre>

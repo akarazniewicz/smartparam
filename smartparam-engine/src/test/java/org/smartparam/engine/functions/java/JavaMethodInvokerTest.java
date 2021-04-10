@@ -61,7 +61,7 @@ public class JavaMethodInvokerTest {
         catchException(invoker).invokeMethod(wrapper, FunctionWrapper.class.getDeclaredMethod("throwingMethod"), true);
 
         // then
-        assertThat(caughtException()).isInstanceOf(JavaFunctionInvocationException.class);
+        assertThat((Exception) caughtException()).isInstanceOf(JavaFunctionInvocationException.class);
     }
 
     private class FunctionWrapper {

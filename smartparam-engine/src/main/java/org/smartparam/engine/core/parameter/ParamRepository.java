@@ -24,7 +24,7 @@ import java.util.Set;
  * parameters from different sources or to create a hierarchy, so it is
  * possible to cover cherry-picked parameters for development purposes.
  *
- * Repositories should be registered using {@link org.smartparam.engine.core.service.ParameterProvider}
+ * Repositories should be registered using {@link ParameterProvider}
  * (or just via {@link org.smartparam.engine.config.ParamEngineConfigBuilder}).
  *
  * Parameter can be retrieved using one of two modes. First one is loading whole parameter

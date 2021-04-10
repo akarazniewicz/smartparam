@@ -32,13 +32,13 @@ import org.smartparam.engine.util.reflection.AnnotationHelper;
 public class AnnotatedObjectFactory {
 
     /**
-     * For all {@link SmartParamSortable}, reasonable default value for order()
+     * For all {@link Sortable}, reasonable default value for order()
      * method.
      */
     public static final int DEFAULT_ORDER_VALUE = 100;
 
     /**
-     * Name of annotation method holding array of {@link SmartParamObjectInstance}
+     * Name of annotation method holding array of {@link ObjectInstance}
      * instance descriptors.
      */
     private static final String INSTANCES_METHOD_NAME = "instances";
@@ -102,9 +102,9 @@ public class AnnotatedObjectFactory {
 
     /**
      * Create new object of given class using its default constructor. If class
-     * implements {@link AnnotationScanner}, scanner properties are injected.
+     * implements {@link AnnotatedObjectsScanner}, scanner properties are injected.
      *
-     * Will throw {@link org.smartparam.engine.core.exception.SmartParamInitializationException} if there is no
+     * Will throw {@link org.smartparam.engine.core.exception.SmartParamException} if there is no
      * default constructor or it is unreachable.
      *
      * @param objectClass class of object to create
@@ -119,10 +119,10 @@ public class AnnotatedObjectFactory {
     /**
      * Create object instance using instructions from object descriptor.
      *
-     * Will throw {@link org.smartparam.engine.core.exception.SmartParamInitializationException} if there is no
+     * Will throw {@link org.smartparam.engine.core.exception.SmartParamException} if there is no
      * constructor matching descriptor.
      *
-     * @see SmartParamObjectInstance
+     * @see ObjectInstance
      *
      * @param objectClass      class to instantiate
      * @param objectDescriptor object instance descriptor
@@ -152,7 +152,7 @@ public class AnnotatedObjectFactory {
     /**
      * Tries to extract order defined in annotation (in order() method),
      * returns default order {@link #DEFAULT_ORDER_VALUE} if annotation is not
-     * {@link SmartParamSortable}.
+     * {@link Sortable}.
      *
      * @param annotation annotation instance to extract order form
      *

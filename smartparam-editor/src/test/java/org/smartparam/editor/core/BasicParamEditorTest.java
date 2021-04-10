@@ -276,6 +276,6 @@ public class BasicParamEditorTest {
         MapEntry normalized = paramEditor.normalize(parameter, denormalized);
 
         // then
-        assertThat(normalized.get("level")).isEqualTo("ASC");
+        assertThat((String) normalized.get("level")).isEqualTo("ASC");
     }
 }

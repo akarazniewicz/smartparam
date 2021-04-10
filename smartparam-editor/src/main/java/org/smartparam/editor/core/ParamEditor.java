@@ -104,7 +104,7 @@ public interface ParamEditor {
     void deleteEntries(RepositoryName in, String parameterName);
 
     /**
-     * Normalize given denormalized MapEntry. Returned normalized MapEntry is same as entry saved&read from repository.
+     * Normalize given denormalized MapEntry. Returned normalized MapEntry is same as entry saved and read from repository.
      */
     MapEntry normalize(Parameter metadata, MapEntry denormalizedEntry);
 
