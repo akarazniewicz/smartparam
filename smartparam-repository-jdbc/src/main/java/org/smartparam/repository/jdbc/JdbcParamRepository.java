@@ -62,13 +62,13 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
 
     private static final int LOADED_BATCH_SIZE = 500;
 
-    private final TransactionRunner transactionRunner;
+    protected final TransactionRunner transactionRunner;
 
-    private final JdbcParameterEntryBatchLoaderFactory batchLoaderFactory;
+    protected final JdbcParameterEntryBatchLoaderFactory batchLoaderFactory;
 
-    private final JdbcRepository dao;
+    protected final JdbcRepository dao;
 
-    private final SchemaCreator schemaCreator;
+    protected final SchemaCreator schemaCreator;
 
     public JdbcParamRepository(TransactionRunner operationRunner, JdbcParameterEntryBatchLoaderFactory batchLoaderFactory,
             JdbcRepository dao, SchemaCreator schemaCreator) {

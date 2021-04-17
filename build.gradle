@@ -60,19 +60,19 @@ subprojects {
     apply plugin: 'maven-publish'
 
     publishing {
-        repositories {
-            maven {
-                name = "org.smartparam"
-                url = uri("https://maven.pkg.github.com/akarazniewicz/smartparam")
-                credentials {
-                    username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                    password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
-                }
+        publications {
+            maven(MavenPublication) {
+                from components.java
             }
         }
-        publications {
-            gpr(MavenPublication) {
-                from(components.java)
+
+        repositories {
+            maven {
+                url 'https://repo.repsy.io/mvn/karaznie/apreel-public'
+                credentials {
+                    username = System.getenv("USERNAME")
+                    password = System.getenv("PASSWORD")
+                }
             }
         }
     }
@@ -110,5 +110,6 @@ subprojects {
         }
     }
 }
+
 
 

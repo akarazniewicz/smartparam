@@ -118,15 +118,15 @@ public class DefaultSchemaCreator implements SchemaCreator {
         }
     }
 
-    private String primaryKey(String sufix) {
+    protected String primaryKey(String sufix) {
         return config.foreignKeyPrefix() + sufix;
     }
 
-    private String foreignKey(String sufix) {
+    protected String foreignKey(String sufix) {
         return config.foreignKeyPrefix() + sufix;
     }
 
-    private String index(String sufix) {
+    protected String index(String sufix) {
         return config.indexPrefix() + sufix;
     }
 
