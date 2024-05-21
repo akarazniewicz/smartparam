@@ -12,13 +12,20 @@ public class GroovyFunction extends Function {
     public final static String FUNCTION_TYPE = "groovy";
     private final List<FunctionParam> signature;
     private final String body;
-    private final Script script;
+    private Script script = null;
 
     public GroovyFunction(String name, List<FunctionParam> signature, String body) {
         super(name, FUNCTION_TYPE);
-        script = new GroovyShell().parse(body);
         this.signature = signature;
         this.body = body;
+    }
+
+    public void initialize() {
+        script = new GroovyShell().parse(body);
+    }
+
+    public boolean isInitialized() {
+        return script != null;
     }
 
     public Script getScript() {

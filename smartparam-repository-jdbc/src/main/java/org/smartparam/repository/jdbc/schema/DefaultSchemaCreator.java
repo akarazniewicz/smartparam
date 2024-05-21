@@ -24,7 +24,6 @@ import org.smartparam.repository.jdbc.config.DefaultJdbcConfig;
 import org.polyjdbc.core.util.TheCloser;
 
 /**
- *
  * @author Adam Dubiel
  */
 public class DefaultSchemaCreator implements SchemaCreator {
@@ -61,15 +60,16 @@ public class DefaultSchemaCreator implements SchemaCreator {
         String relationName = config.parameterEntityName();
         if (!schemaInspector.relationExists(relationName)) {
             schema.addRelation(relationName)
-                    .withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
-                    .withAttribute().string("name").withMaxLength(200).notNull().unique().and()
-                    .withAttribute().integer("input_levels").notNull().and()
-                    .withAttribute().booleanAttr("cacheable").notNull().withDefaultValue(true).and()
-                    .withAttribute().booleanAttr("nullable").notNull().withDefaultValue(false).and()
-                    .withAttribute().booleanAttr("identify_entries").notNull().withDefaultValue(false).and()
-                    .withAttribute().character("array_separator").notNull().withDefaultValue(';').and()
-                    .primaryKey(primaryKey(relationName)).using("id").and()
-                    .build();
+                .withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
+                .withAttribute().string("name").withMaxLength(200).notNull().unique().and()
+                .withAttribute().integer("input_levels").notNull().and()
+                .withAttribute().booleanAttr("cacheable").notNull().withDefaultValue(true).and()
+                .withAttribute().booleanAttr("nullable").notNull().withDefaultValue(false).and()
+                .withAttribute().booleanAttr("identify_entries").notNull().withDefaultValue(false).and()
+                .withAttribute().character("array_separator").notNull().withDefaultValue(';').and()
+                .withAttribute().timestamp("updated_timestamp").and()
+                .primaryKey(primaryKey(relationName)).using("id").and()
+                .build();
             schema.addIndex(index(relationName) + "_id").indexing("id").on(relationName).build();
             schema.addIndex(index(relationName) + "_name").indexing("name").on(relationName).build();
             schema.addSequence(config.parameterSequenceName()).build();
@@ -80,17 +80,17 @@ public class DefaultSchemaCreator implements SchemaCreator {
         String relationName = config.levelEntityName();
         if (!schemaInspector.relationExists(relationName)) {
             schema.addRelation(relationName)
-                    .withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
-                    .withAttribute().string("name").withMaxLength(200).and()
-                    .withAttribute().string("type").withMaxLength(100).notNull().and()
-                    .withAttribute().string("matcher").withMaxLength(100).and()
-                    .withAttribute().string("level_creator").withMaxLength(200).and()
-                    .withAttribute().booleanAttr("array_flag").notNull().withDefaultValue(false).and()
-                    .withAttribute().integer("order_no").notNull().and()
-                    .withAttribute().longAttr(foreignKey("parameter")).notNull().and()
-                    .primaryKey(primaryKey(relationName)).using("id").and()
-                    .foreignKey(foreignKey(relationName) + "_name").references(config.parameterEntityName(), "id").on(foreignKey("parameter")).and()
-                    .build();
+                .withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
+                .withAttribute().string("name").withMaxLength(200).and()
+                .withAttribute().string("type").withMaxLength(100).notNull().and()
+                .withAttribute().string("matcher").withMaxLength(100).and()
+                .withAttribute().string("level_creator").withMaxLength(200).and()
+                .withAttribute().booleanAttr("array_flag").notNull().withDefaultValue(false).and()
+                .withAttribute().integer("order_no").notNull().and()
+                .withAttribute().longAttr(foreignKey("parameter")).notNull().and()
+                .primaryKey(primaryKey(relationName)).using("id").and()
+                .foreignKey(foreignKey(relationName) + "_name").references(config.parameterEntityName(), "id").on(foreignKey("parameter")).and()
+                .build();
             schema.addIndex(index(relationName) + "_id").indexing("id").on(relationName).build();
             schema.addIndex(index(relationName) + "_parameter").indexing(foreignKey("parameter")).on(relationName).build();
             schema.addSequence(config.levelSequenceName()).build();
@@ -102,15 +102,15 @@ public class DefaultSchemaCreator implements SchemaCreator {
         if (!schemaInspector.relationExists(relationName)) {
             RelationBuilder builder = RelationBuilder.relation(schema, relationName);
             builder.withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
-                    .withAttribute().longAttr(foreignKey("parameter")).notNull().and();
+                .withAttribute().longAttr(foreignKey("parameter")).notNull().and();
 
             for (int levelIndex = 0; levelIndex < config.levelColumnCount(); ++levelIndex) {
                 builder.string("level" + levelIndex).withMaxLength(255).and();
             }
 
             builder.primaryKey(primaryKey(relationName)).using("id").and()
-                    .foreignKey(foreignKey(relationName) + "_parameter").references(config.parameterEntityName(), "id").on(foreignKey("parameter")).and()
-                    .build();
+                .foreignKey(foreignKey(relationName) + "_parameter").references(config.parameterEntityName(), "id").on(foreignKey("parameter")).and()
+                .build();
 
             schema.addIndex(index(relationName) + "_id").indexing("id").on(relationName).build();
             schema.addIndex(index(relationName) + "_parameter").indexing(foreignKey("parameter")).on(relationName).build();

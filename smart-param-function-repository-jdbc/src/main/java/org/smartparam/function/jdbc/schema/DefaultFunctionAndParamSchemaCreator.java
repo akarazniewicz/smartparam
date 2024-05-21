@@ -14,8 +14,8 @@ public class DefaultFunctionAndParamSchemaCreator extends DefaultSchemaCreator {
     private final SchemaManagerFactory schemaManagerFactory;
 
     public DefaultFunctionAndParamSchemaCreator(
-            DefaultJdbcFunctionAndParamConfig configuration,
-            SchemaManagerFactory schemaManagerFactory
+        DefaultJdbcFunctionAndParamConfig configuration,
+        SchemaManagerFactory schemaManagerFactory
     ) {
         super(configuration, schemaManagerFactory);
         this.config = configuration;
@@ -44,12 +44,13 @@ public class DefaultFunctionAndParamSchemaCreator extends DefaultSchemaCreator {
         String relationName = config.functionEntityName();
         if (!schemaInspector.relationExists(relationName)) {
             schema.addRelation(relationName)
-                    .withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
-                    .withAttribute().string("name").withMaxLength(1024).notNull().unique().and()
-                    .withAttribute().text("signature").notNull().and()
-                    .withAttribute().text("body").notNull().and()
-                    .primaryKey(primaryKey(relationName)).using("id").and()
-                    .build();
+                .withAttribute().longAttr("id").withAdditionalModifiers("AUTO_INCREMENT").notNull().and()
+                .withAttribute().string("name").withMaxLength(1024).notNull().unique().and()
+                .withAttribute().text("signature").notNull().and()
+                .withAttribute().text("body").notNull().and()
+                .withAttribute().timestamp("updated_timestamp").and()
+                .primaryKey(primaryKey(relationName)).using("id").and()
+                .build();
             schema.addIndex(index(relationName) + "_id").indexing("id").on(relationName).build();
             schema.addIndex(index(relationName) + "_name").indexing("name").on(relationName).build();
             schema.addSequence(config.functionSequenceName()).build();

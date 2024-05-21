@@ -24,6 +24,7 @@ class FunctionMapperTest {
                 .thenReturn("a:String,b:String");
 
         GroovyFunction function = new FunctionMapper().createObject(resultSet);
+        function.initialize();
 
         assertEquals("testFunction", function.getName());
         assertNotNull(function.getScript());

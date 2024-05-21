@@ -18,6 +18,7 @@ package org.smartparam.repository.jdbc.dao;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.polyjdbc.core.query.mapper.StringMapper;
 import org.polyjdbc.core.query.DeleteQuery;
 import org.polyjdbc.core.query.InsertQuery;
@@ -26,13 +27,13 @@ import org.polyjdbc.core.query.QueryRunner;
 import org.polyjdbc.core.query.SelectQuery;
 import org.polyjdbc.core.query.SimpleQueryRunner;
 import org.polyjdbc.core.query.UpdateQuery;
+import org.polyjdbc.core.type.Timestamp;
 import org.smartparam.editor.core.filters.ParameterFilter;
 import org.smartparam.engine.core.parameter.Parameter;
 import org.smartparam.repository.jdbc.config.JdbcConfig;
 import org.smartparam.repository.jdbc.model.JdbcParameter;
 
 /**
- *
  * @author Adam Dubiel
  */
 public class ParameterDAO {
@@ -48,13 +49,14 @@ public class ParameterDAO {
 
     public long insert(QueryRunner queryRunner, Parameter parameter) {
         InsertQuery query = QueryFactory.insert().into(configuration.parameterEntityName())
-                .sequence("id", configuration.parameterSequenceName())
-                .value("name", parameter.getName())
-                .value("input_levels", parameter.getInputLevels())
-                .value("cacheable", parameter.isCacheable())
-                .value("nullable", parameter.isNullable())
-                .value("identify_entries", parameter.isIdentifyEntries())
-                .value("array_separator", parameter.getArraySeparator());
+            .sequence("id", configuration.parameterSequenceName())
+            .value("name", parameter.getName())
+            .value("input_levels", parameter.getInputLevels())
+            .value("cacheable", parameter.isCacheable())
+            .value("nullable", parameter.isNullable())
+            .value("identify_entries", parameter.isIdentifyEntries())
+            .value("array_separator", parameter.getArraySeparator())
+            .value("updated_timestamp", Timestamp.from(System.currentTimeMillis()));
         return queryRunner.insert(query);
     }
 
@@ -73,7 +75,7 @@ public class ParameterDAO {
 
         if (filter.applyNameFilter()) {
             query.where("upper(name) like :name")
-                    .withArgument("name", FilterConverter.parseAntMatcher(filter.nameFilter()));
+                .withArgument("name", FilterConverter.parseAntMatcher(filter.nameFilter()));
         }
         query.orderBy("name", FilterConverter.parseSortOrder(filter.sortDirection()));
 
@@ -82,25 +84,34 @@ public class ParameterDAO {
 
     public JdbcParameter getParameter(QueryRunner queryRunner, String parameterName) {
         SelectQuery query = QueryFactory.selectAll().from(configuration.parameterEntityName()).where("name = :name")
-                .withArgument("name", parameterName);
+            .withArgument("name", parameterName);
         return queryRunner.queryUnique(query, new ParameterMapper(), false);
     }
 
     public boolean parameterExists(String parameterName) {
         SelectQuery query = QueryFactory.selectAll().from(configuration.parameterEntityName()).where("name = :name")
-                .withArgument("name", parameterName);
+            .withArgument("name", parameterName);
         return simpleQueryRunner.queryExistence(query);
     }
 
     public void update(QueryRunner queryRunner, String parameterName, Parameter parameter) {
         UpdateQuery query = QueryFactory.update(configuration.parameterEntityName()).where("name = :name")
-                .withArgument("name", parameterName)
-                .set("name", parameter.getName())
-                .set("input_levels", parameter.getInputLevels())
-                .set("cacheable", parameter.isCacheable())
-                .set("nullable", parameter.isNullable())
-                .set("identify_entries", parameter.isIdentifyEntries())
-                .set("array_separator", parameter.getArraySeparator());
+            .withArgument("name", parameterName)
+            .set("name", parameter.getName())
+            .set("input_levels", parameter.getInputLevels())
+            .set("cacheable", parameter.isCacheable())
+            .set("nullable", parameter.isNullable())
+            .set("identify_entries", parameter.isIdentifyEntries())
+            .set("array_separator", parameter.getArraySeparator())
+            .set("updated_timestamp", Timestamp.from(System.currentTimeMillis()));
+
+        queryRunner.update(query);
+    }
+
+    public void touch(QueryRunner queryRunner, String parameterName) {
+        UpdateQuery query = QueryFactory.update(configuration.parameterEntityName()).where("name = :name")
+            .withArgument("name", parameterName)
+            .set("updated_timestamp", Timestamp.from(System.currentTimeMillis()));
 
         queryRunner.update(query);
     }

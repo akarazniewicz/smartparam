@@ -53,9 +53,9 @@ public interface JdbcRepository {
 
     long addLevel(QueryRunner runner, String parameterName, Level level);
 
-    void updateLevel(QueryRunner runner, long levelId, Level level);
+    void updateLevel(QueryRunner runner, long levelId, Level level, String parameterName);
 
-    void reorderLevels(QueryRunner runner, long[] orderedLevelIds);
+    void reorderLevels(QueryRunner runner, long[] orderedLevelIds, String parameterName);
 
     void deleteLevel(QueryRunner queryRunner, String parameterName, long levelId);
 
@@ -65,11 +65,11 @@ public interface JdbcRepository {
 
     long addParameterEntry(QueryRunner runner, String parameterName, ParameterEntry entry);
 
-    void updateParameterEntry(QueryRunner runner, long entryId, ParameterEntry entry);
+    void updateParameterEntry(QueryRunner runner, long entryId, ParameterEntry entry, String parameterName);
 
-    void deleteParameterEntry(QueryRunner runner, long entryId);
+    void deleteParameterEntry(QueryRunner runner, long entryId, String parameterName);
 
-    void deleteParameterEntries(QueryRunner runner, Iterable<Long> entriesIds);
+    void deleteParameterEntries(QueryRunner runner, Iterable<Long> entriesIds, String parameterName);
 
     void deleteParameterEntries(QueryRunner runner, String parameterName);
 }

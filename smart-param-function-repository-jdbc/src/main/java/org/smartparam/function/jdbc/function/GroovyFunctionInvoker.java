@@ -20,6 +20,8 @@ public class GroovyFunctionInvoker implements FunctionInvoker {
     @Override
     public Object invoke(Function function, Object... args) {
         GroovyFunction groovyFunction = (GroovyFunction) function;
+        if (!groovyFunction.isInitialized())
+            groovyFunction.initialize();
         Binding binding = groovyFunction.getScript().getBinding();
         List<FunctionParam> signature = groovyFunction.getSignature();
         int suppliedArguments = min(args.length, signature.size());
