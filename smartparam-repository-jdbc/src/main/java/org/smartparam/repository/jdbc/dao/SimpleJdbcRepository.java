@@ -108,6 +108,7 @@ public class SimpleJdbcRepository implements JdbcRepository {
     @Override
     public List<Long> writeParameterEntries(QueryRunner runner, String parameterName, Iterable<ParameterEntry> entries) {
         JdbcParameter parameter = parameterDAO.getParameter(runner, parameterName);
+        parameterDAO.touch(runner, parameterName);
         return parameterEntryDAO.insert(runner, entries, parameter.getId());
     }
 
@@ -126,22 +127,26 @@ public class SimpleJdbcRepository implements JdbcRepository {
     @Override
     public long addLevel(QueryRunner runner, String parameterName, Level level) {
         JdbcParameter parameter = parameterDAO.getParameter(runner, parameterName);
+        parameterDAO.touch(runner, parameterName);
         return levelDAO.insert(runner, level, parameter.getId());
     }
 
     @Override
-    public void updateLevel(QueryRunner runner, long levelId, Level level) {
+    public void updateLevel(QueryRunner runner, long levelId, Level level, String parameterName) {
+        parameterDAO.touch(runner, parameterName);
         levelDAO.update(runner, levelId, level);
     }
 
     @Override
-    public void reorderLevels(QueryRunner runner, long[] orderedLevelIds) {
+    public void reorderLevels(QueryRunner runner, long[] orderedLevelIds, String parameterName) {
+        parameterDAO.touch(runner, parameterName);
         levelDAO.reorder(runner, orderedLevelIds);
     }
 
     @Override
     public void deleteLevel(QueryRunner queryRunner, String parameterName, long levelId) {
         JdbcParameter parameter = parameterDAO.getParameter(queryRunner, parameterName);
+        parameterDAO.touch(queryRunner, parameterName);
         levelDAO.delete(queryRunner, parameter.getId(), levelId);
     }
 
@@ -159,27 +164,31 @@ public class SimpleJdbcRepository implements JdbcRepository {
     @Override
     public long addParameterEntry(QueryRunner runner, String parameterName, ParameterEntry entry) {
         JdbcParameter parameter = parameterDAO.getParameter(runner, parameterName);
+        parameterDAO.touch(runner, parameterName);
         return parameterEntryDAO.insert(runner, entry, parameter.getId());
     }
 
     @Override
-    public void updateParameterEntry(QueryRunner runner, long entryId, ParameterEntry entry) {
+    public void updateParameterEntry(QueryRunner runner, long entryId, ParameterEntry entry, String parameterName) {
+        parameterDAO.touch(runner, parameterName);
         parameterEntryDAO.update(runner, entryId, entry);
     }
 
     @Override
-    public void deleteParameterEntry(QueryRunner runner, long entryId) {
+    public void deleteParameterEntry(QueryRunner runner, long entryId, String parameterName) {
+        parameterDAO.touch(runner, parameterName);
         parameterEntryDAO.delete(runner, entryId);
     }
 
     @Override
-    public void deleteParameterEntries(QueryRunner runner, Iterable<Long> entriesIds) {
+    public void deleteParameterEntries(QueryRunner runner, Iterable<Long> entriesIds, String parameterName) {
+        parameterDAO.touch(runner, parameterName);
         parameterEntryDAO.delete(runner, entriesIds);
     }
 
     @Override
     public void deleteParameterEntries(QueryRunner runner, String parameterName) {
+        parameterDAO.touch(runner, parameterName);
         parameterEntryDAO.deleteParameterEntries(runner, parameterName);
     }
-
 }

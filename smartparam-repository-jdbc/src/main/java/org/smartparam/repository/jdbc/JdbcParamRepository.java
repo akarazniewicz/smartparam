@@ -257,7 +257,7 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
         transactionRunner.run(new VoidTransactionWrapper() {
             @Override
             public void performVoid(QueryRunner queryRunner) {
-                dao.updateLevel(queryRunner, new JdbcLevelKey(levelKey).levelId(), level);
+                dao.updateLevel(queryRunner, new JdbcLevelKey(levelKey).levelId(), level, parameterName);
             }
         });
     }
@@ -272,7 +272,7 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
                     orderedLevelIds[index] = new JdbcLevelKey(orderedLevels.get(index)).levelId();
                 }
 
-                dao.reorderLevels(queryRunner, orderedLevelIds);
+                dao.reorderLevels(queryRunner, orderedLevelIds, parameterName);
             }
         });
     }
@@ -344,7 +344,7 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
         transactionRunner.run(new VoidTransactionWrapper() {
             @Override
             public void performVoid(QueryRunner queryRunner) {
-                dao.updateParameterEntry(queryRunner, new JdbcParameterEntryKey(entryKey).entryId(), entry);
+                dao.updateParameterEntry(queryRunner, new JdbcParameterEntryKey(entryKey).entryId(), entry, parameterName);
             }
         });
     }
@@ -354,7 +354,7 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
         transactionRunner.run(new VoidTransactionWrapper() {
             @Override
             public void performVoid(QueryRunner queryRunner) {
-                dao.deleteParameterEntry(queryRunner, new JdbcParameterEntryKey(entryKey).entryId());
+                dao.deleteParameterEntry(queryRunner, new JdbcParameterEntryKey(entryKey).entryId(), parameterName);
             }
         });
     }
@@ -369,7 +369,7 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
                     ids.add(new JdbcParameterEntryKey(key).entryId());
                 }
 
-                dao.deleteParameterEntries(queryRunner, ids);
+                dao.deleteParameterEntries(queryRunner, ids, parameterName);
             }
         });
     }
@@ -383,5 +383,4 @@ public class JdbcParamRepository implements WritableParamRepository, EditablePar
             }
         });
     }
-
 }
